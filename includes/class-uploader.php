@@ -348,7 +348,7 @@ final class WPBS_Uploader {
 		if ( isset( $raw['t'] ) && '' !== $raw['t'] ) {
 			$clean['t'] = max( 0, (int) $raw['t'] );
 		}
-		update_post_meta( $post_id, '_wpbs_player_override', wp_json_encode( $clean ) );
+		update_post_meta( $post_id, '_wpbs_player_override', wp_slash( wp_json_encode( $clean, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) ) );
 	}
 
 	public static function ajax_create_video() {
@@ -520,7 +520,7 @@ final class WPBS_Uploader {
 			wp_send_json_error( [ 'message' => $res->get_error_message() ], 500 );
 		}
 
-		update_post_meta( $post_id, '_wpbs_moments', wp_json_encode( $clean ) );
+		update_post_meta( $post_id, '_wpbs_moments', wp_slash( wp_json_encode( $clean, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) ) );
 		wp_send_json_success( [ 'moments' => $clean ] );
 	}
 
@@ -647,7 +647,7 @@ final class WPBS_Uploader {
 			wp_send_json_error( [ 'message' => $res->get_error_message() ], 500 );
 		}
 
-		update_post_meta( $post_id, '_wpbs_chapters', wp_json_encode( $clean ) );
+		update_post_meta( $post_id, '_wpbs_chapters', wp_slash( wp_json_encode( $clean, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) ) );
 		wp_send_json_success( [ 'chapters' => $clean ] );
 	}
 

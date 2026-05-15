@@ -88,7 +88,8 @@ final class WPBS_Webhook {
 		foreach ( [ 'chapters', 'moments', 'captions' ] as $key ) {
 			if ( array_key_exists( $key, $video ) ) {
 				$value = is_array( $video[ $key ] ) ? $video[ $key ] : [];
-				update_post_meta( $post_id, '_wpbs_' . $key, wp_json_encode( $value ) );
+				$json  = wp_json_encode( $value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+				update_post_meta( $post_id, '_wpbs_' . $key, wp_slash( $json ) );
 			}
 		}
 

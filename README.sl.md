@@ -20,7 +20,6 @@ Samostojno gostujoči most med **WordPressom** in **[Bunny Streamom](https://bun
   - Ustvarjanje samo poglavij in trenutkov (brezplačno, če transkripcija obstaja).
   - Transkripcija + ustvarjanje podnapisov + naslov + opis + poglavja + trenutki. Večjezično z integracijo **Polylang**.
 - **Urejevalniki** za poglavja, trenutke in podnapise (VTT / SRT). Vgrajen VTT urejevalnik za popravljanje tipkarskih napak.
-- **Klikljiv seznam poglavij** pod predvajalnikom v sprednjem delu s skokom v časovnici.
 
 ## Namestitev
 
@@ -75,7 +74,6 @@ Ko Bunny zaključi obdelavo (asinhrono), kliknite **Refresh status**, da prenese
 | `t` | – | Začetni čas v sekundah |
 | `ratio` | auto | `auto`, `16:9`, `9:16`, `1:1`, `4:3`, `21:9`, `4:5`, ali decimalna `H/W` |
 | `width` | – | Maksimalna širina (px ali %) |
-| `chapters` | `auto` | `auto` prikaže seznam pod predvajalnikom, če obstajajo podatki, `off` ga skrije |
 
 ## Polylang
 

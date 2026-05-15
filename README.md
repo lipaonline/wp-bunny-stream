@@ -20,7 +20,6 @@ Self-hosted bridge between **WordPress** and **[Bunny Stream](https://bunny.net/
   - Generate chapters and moments only (free, when a transcription exists).
   - Transcribe + generate captions + title + description + chapters + moments. Multi-language with **Polylang** integration.
 - **Editors** for chapters, moments and captions (VTT / SRT). Inline VTT editor for fixing typos.
-- **Clickable chapter list** under the player on the frontend with timeline seek.
 
 ## Installation
 
@@ -75,7 +74,6 @@ Once Bunny finishes processing (asynchronously), click **Refresh status** to pul
 | `t` | – | Start time in seconds |
 | `ratio` | auto | `auto`, `16:9`, `9:16`, `1:1`, `4:3`, `21:9`, `4:5`, or `H/W` decimal |
 | `width` | – | Max width (px or %) |
-| `chapters` | `auto` | `auto` shows chapter list under the player if data exists, `off` hides it |
 
 ## Polylang
 

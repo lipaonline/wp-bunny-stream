@@ -7,23 +7,6 @@ final class WPBS_Shortcode {
 
 	public static function register() {
 		add_shortcode( 'bunny_video', [ __CLASS__, 'render' ] );
-		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'register_assets' ] );
-	}
-
-	public static function register_assets() {
-		wp_register_style(
-			'wpbs-frontend',
-			WPBS_URL . 'assets/css/frontend.css',
-			[],
-			WPBS_VERSION
-		);
-		wp_register_script(
-			'wpbs-chapters',
-			WPBS_URL . 'assets/js/chapters.js',
-			[],
-			WPBS_VERSION,
-			true
-		);
 	}
 
 	public static function render( $atts ) {
@@ -38,7 +21,6 @@ final class WPBS_Shortcode {
 			't'        => '',
 			'width'    => '',
 			'ratio'    => '',
-			'chapters' => 'auto',
 		], $atts, 'bunny_video' );
 
 		$guid       = $atts['guid'];
@@ -79,45 +61,7 @@ final class WPBS_Shortcode {
 			}
 		}
 
-		$html = self::build_iframe( $library_id, $guid, $override, $atts['width'], $ratio );
-
-		if ( $atts['id'] && 'off' !== $atts['chapters'] ) {
-			$html .= self::render_chapter_list( (int) $atts['id'] );
-		}
-
-		return $html;
-	}
-
-	private static function render_chapter_list( $post_id ) {
-		$chapters = json_decode( get_post_meta( $post_id, '_wpbs_chapters', true ) ?: '[]', true );
-		if ( ! is_array( $chapters ) || ! $chapters ) {
-			return '';
-		}
-
-		wp_enqueue_style( 'wpbs-frontend' );
-		wp_enqueue_script( 'wpbs-chapters' );
-
-		$out  = '<ul class="wpbs-chapters">';
-		foreach ( $chapters as $ch ) {
-			$start = isset( $ch['start'] ) ? (int) $ch['start'] : 0;
-			$title = isset( $ch['title'] ) ? $ch['title'] : '';
-			$out  .= sprintf(
-				'<li><a href="#" data-wpbs-seek="%d"><span class="wpbs-chapters__time">%s</span><span class="wpbs-chapters__title">%s</span></a></li>',
-				$start,
-				esc_html( self::format_time( $start ) ),
-				esc_html( $title )
-			);
-		}
-		$out .= '</ul>';
-		return $out;
-	}
-
-	private static function format_time( $seconds ) {
-		$seconds = max( 0, (int) $seconds );
-		$h = intdiv( $seconds, 3600 );
-		$m = intdiv( $seconds % 3600, 60 );
-		$s = $seconds % 60;
-		return $h ? sprintf( '%d:%02d:%02d', $h, $m, $s ) : sprintf( '%d:%02d', $m, $s );
+		return self::build_iframe( $library_id, $guid, $override, $atts['width'], $ratio );
 	}
 
 	/**

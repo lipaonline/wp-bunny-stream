@@ -20,7 +20,6 @@ Pont auto-hébergé entre **WordPress** et **[Bunny Stream](https://bunny.net/st
   - Générer uniquement chapitres et moments (gratuit, si une transcription existe).
   - Transcrire + générer sous-titres + titre + description + chapitres + moments. Multi-langues avec intégration **Polylang**.
 - **Éditeurs** pour chapitres, moments et sous-titres (VTT / SRT). Éditeur VTT inline pour corriger les fautes.
-- **Liste de chapitres cliquables** sous le player en front avec seek dans la timeline.
 
 ## Installation
 
@@ -75,7 +74,6 @@ Une fois le traitement Bunny terminé (asynchrone), cliquez **Refresh status** p
 | `t` | – | Temps de départ en secondes |
 | `ratio` | auto | `auto`, `16:9`, `9:16`, `1:1`, `4:3`, `21:9`, `4:5`, ou décimal `H/W` |
 | `width` | – | Largeur max (px ou %) |
-| `chapters` | `auto` | `auto` affiche la liste sous le player si des données existent, `off` la cache |
 
 ## Polylang
 
