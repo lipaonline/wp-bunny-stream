@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wpbs/bunny-video",
+	"title": "Bunny Video",
+	"category": "media",
+	"icon": "video-alt3",
+	"description": "Embed a Bunny Stream video.",
+	"keywords": ["video", "bunny", "stream"],
+	"textdomain": "wp-bunny-stream",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"attributes": {
+		"videoId":  { "type": "number" },
+		"guid":     { "type": "string" },
+		"autoplay": { "type": "boolean" },
+		"loop":     { "type": "boolean" },
+		"muted":    { "type": "boolean" },
+		"preload":  { "type": "boolean" },
+		"color":    { "type": "string"  },
+		"startAt":  { "type": "number"  },
+		"ratio":    { "type": "string"  }
+	},
+	"supports": { "html": false, "align": ["wide", "full"] }
+}
